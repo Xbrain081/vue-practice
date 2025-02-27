@@ -1,15 +1,15 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-import TheGallery from '@/components/TheGallery.vue'
-import Login from '@/components/TheLogin.vue'
-import TheRegister from '@/components/TheRegister.vue'
-import DefaultLayout from '@/layouts/DefaultLayout.vue'
-import AdminLayout from '@/layouts/AdminLayout.vue'
-import DashboardView from '@/views/DashboardView.vue'
-
+import { createRouter, createWebHistory } from 'vue-router';
+import HomeView from '../views/HomeView.vue';
+import TheGallery from '@/components/TheGallery.vue';
+import Login from '@/components/TheLogin.vue';
+import TheRegister from '@/components/TheRegister.vue';
+import DefaultLayout from '@/layouts/DefaultLayout.vue';
+import AdminLayout from '@/layouts/AdminLayout.vue';
+import DashboardView from '@/views/DashboardView.vue';
+import PixelArt from '@/components/pixelArt.vue';
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHistory(),
   routes: [
     {
       path: '/',
@@ -22,13 +22,13 @@ const router = createRouter({
       component: () => import('../views/AboutView.vue'),
     },
     {
-      path: '/Gallery',
+      path: '/gallery',
       name: 'gallery',
       component: TheGallery,
     },
     {
-      path: '/Login',
-      name: 'Login',
+      path: '/login',
+      name: 'login',
       component: Login,
     },
     {
@@ -36,7 +36,12 @@ const router = createRouter({
       name: 'register',
       component: TheRegister,
     },
-    //layouts
+    {
+      path: '/pixel-art',
+      name: 'pixel-art',
+      component: PixelArt,
+    },
+    // Layouts
     {
       path: '/HomeLayout',
       name: 'HomeLayout',
@@ -45,9 +50,9 @@ const router = createRouter({
     {
       path: '/AdminLayout',
       component: AdminLayout,
-      children: [{ path: '', component: DashboardView }]
-    }
+      children: [{ path: '', component: DashboardView }],
+    },
   ],
-})
+});
 
-export default router
+export default router;
